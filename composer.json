@@ -1,0 +1,9 @@
+{
+  "name": "properly/wordpress-related-posts",
+  "type": "wordpress-plugin",
+  "autoload": {
+    "psr-0" : {
+      "Properly\\WordpressRelatedPosts" : "src"
+    }
+  }
+}

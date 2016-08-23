@@ -156,8 +156,20 @@ function wp_rp_generate_tags($post) {
 	return $all_tags;
 }
 
+function wp_rp_fetch_related_posts_by_id($id, $limit = 10, $exclude_ids = array()) {
+  $post = get_post($id);
+
+  return fetch_related_posts($post, $limit, $exclude_ids);
+}
+
 function wp_rp_fetch_related_posts_v2($limit = 10, $exclude_ids = array()) {
-	global $wpdb, $post;
+	global $post;
+
+  return fetch_related_posts($post, $limit, $exclude_ids);
+}
+
+function fetch_related_posts($post, $limit, $exclude_ids) {
+	global $wpdb;
 	$options = wp_rp_get_options();
 
 	$timestamp = time();
